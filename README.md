@@ -1,16 +1,29 @@
 # faro-frontend-guidelines
 
-Frontend guidelines and rules for faro (osb-faro-web), published as a static site on GitHub Pages.
+A shared place for the frontend team to write down how we build faro (osb-faro-web): longer guideline write-ups and short, reviewable rules. Nothing here is agreed yet; pages go in once the team agrees on them.
 
-- `docs/`: longer guideline write-ups, one Markdown file per page
-- `rules/`: short, reviewable rules. Copy `rules/_template.md` to start one; the build fails if a required section is missing.
+## How it works
+
+Markdown in, static HTML out. No framework, no server in production.
+
+```
+docs/*.md, rules/*.md  ──▶  src/build.js  ──▶  dist/  ──▶  GitHub Pages
+```
+
+- `docs/`: one Markdown file per guideline page
+- `rules/`: one file per rule. Copy `rules/_template.md` to start; the build fails if a required section is missing.
+- `src/docs.js`: reads the Markdown and front matter, highlights code at build time
+- `src/build.js`: renders every page with the Handlebars templates in `src/views/` and copies `public/` (CSS)
+- `src/serve.js`: local dev server for `dist/`
 
 ## Running it
 
 ```sh
 yarn install
-yarn dev     # builds and serves on http://localhost:3000, rebuilding on changes
-yarn build   # writes the static site to dist/
+yarn dev     # http://localhost:3000, rebuilds on changes
+yarn build   # writes dist/
 ```
 
-Every push to `main` deploys the site through `.github/workflows/pages.yml`.
+## Deploying
+
+Every push to `main` runs `.github/workflows/pages.yml`, which builds the site and publishes `dist/` to GitHub Pages.
