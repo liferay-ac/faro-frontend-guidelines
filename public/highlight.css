@@ -1,0 +1,85 @@
+/*
+  Light theme for highlight.js using only the 16 basic CSS colour names,
+  on the white code block. Every colour has at least 4.5:1 contrast against
+  white (WCAG AA for normal text), except gray for comments (3.9:1).
+
+  The block itself (background, padding, border) is styled by `pre` in styles.css.
+*/
+
+.hljs {
+  color: black;
+}
+
+/* const, return, if, import ... */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-tag,
+.hljs-name {
+  color: blue;
+}
+
+/* "strings", `templates`, regexes */
+.hljs-string,
+.hljs-regexp,
+.hljs-char.escape_,
+.hljs-section,
+.hljs-bullet {
+  color: green;
+}
+
+/* 1, true, null, undefined */
+.hljs-number,
+.hljs-literal,
+.hljs-symbol {
+  color: maroon;
+}
+
+/* function and class names */
+.hljs-title,
+.hljs-title.function_,
+.hljs-title.class_,
+.hljs-built_in {
+  color: purple;
+}
+
+/* object keys, HTML/JSX attributes, CSS properties, types */
+.hljs-attr,
+.hljs-attribute,
+.hljs-property,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-id {
+  color: teal;
+}
+
+/* comments and doc comments */
+.hljs-comment,
+.hljs-quote,
+.hljs-doctag,
+.hljs-meta {
+  color: gray;
+  font-style: italic;
+}
+
+.hljs-section,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+/* diff blocks */
+.hljs-addition {
+  color: green;
+}
+
+.hljs-deletion {
+  color: maroon;
+}
+
+.hljs-link {
+  color: blue;
+  text-decoration: underline;
+}

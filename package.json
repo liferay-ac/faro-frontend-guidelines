@@ -1,4 +1,16 @@
 {
-  "name": "react-guidelines",
-  "packageManager": "yarn@4.18.0"
+  "name": "faro-frontend-guidelines",
+  "packageManager": "yarn@4.18.0",
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "handlebars": "^4.7.10",
+    "highlight.js": "^11.12.0",
+    "marked": "^18.1.3",
+    "marked-highlight": "^2.2.4"
+  },
+  "scripts": {
+    "build": "node ./src/build.js",
+    "dev": "node --watch-path=docs --watch-path=rules --watch-path=src --watch-path=public ./src/serve.js"
+  },
+  "type": "module"
 }

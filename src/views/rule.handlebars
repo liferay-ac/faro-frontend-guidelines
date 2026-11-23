@@ -1,0 +1,20 @@
+<header>
+  <h1>{{title}}</h1>
+  <p><strong>Rule:</strong> <code>{{id}}</code></p>
+  <p class="byline">
+    <a href="/rules/#{{category_slug}}">{{category}}</a> · Status: <mark data-status="{{status}}">{{status}}</mark>{{#if accepted}} · Enforced by: {{enforced_by}}{{/if}}
+  </p>
+  <p class="byline">
+    {{#if date}}<time datetime="{{date.iso}}">{{date.display}}</time> · {{/if}}{{#if ai_drafted}}Drafted by AI for {{author}}{{else}}{{author}}{{/if}}
+  </p>
+  {{#unless accepted}}
+    <aside>
+      <p><strong>This is a {{status}} rule, not a team agreement.</strong> It's here to be discussed: check the evidence, push back on the open questions, and suggest changes.</p>
+      {{#if revisions.length}}{{> revisions}}{{/if}}
+    </aside>
+  {{else}}
+    {{#if revisions.length}}<aside>{{> revisions}}</aside>{{/if}}
+  {{/unless}}
+</header>
+
+{{{content}}}

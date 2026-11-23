@@ -1,0 +1,16 @@
+<header>
+  <h1>{{title}}</h1>
+  <p class="byline">
+    {{#if date}}<time datetime="{{date.iso}}">{{date.display}}</time> · {{/if}}{{author}}
+  </p>
+  {{#if tags.length}}
+    <p class="byline">
+      Tags: {{#each tags}}{{#unless @first}}, {{/unless}}<a href="/tags/{{slug}}/">{{name}}</a>{{/each}}
+    </p>
+  {{/if}}
+  {{#if revisions.length}}
+    <aside>{{> revisions}}</aside>
+  {{/if}}
+</header>
+
+{{{content}}}

@@ -1,0 +1,71 @@
+<h1>Search</h1>
+
+<h2 id="nothing-found" hidden>NADÃO</h2>
+
+<section>
+  <h2>Posts</h2>
+
+  <ul class="doc-list">
+    {{#each docs}}
+      <li>
+        <a href="/docs/{{slug}}/">{{title}}</a>
+        {{#if date}}<time class="byline" datetime="{{date.iso}}">{{date.display}}</time>{{/if}}
+        <p class="byline">{{description}} {{keywords}}</p>
+      </li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  <h2>Rules</h2>
+
+  <ul class="doc-list">
+    {{#each rules}}
+      <li>
+        <a href="/rules/{{id}}/">{{title}}</a>
+        <p><small>{{id}} · <mark data-status="{{status}}">{{status}}</mark></small></p>
+        <p class="byline">{{description}} {{category}}</p>
+      </li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  <h2>Tags</h2>
+
+  <ul class="doc-list">
+    {{#each tags}}
+      <li><a href="/tags/{{slug}}/">{{name}}</a> <span class="byline">({{docs.length}})</span></li>
+    {{/each}}
+  </ul>
+</section>
+
+<script>
+  // Filters the lists as you type, using the search box in the nav.
+  // Without JavaScript the page still lists everything, and Ctrl+F works.
+  const input = document.querySelector('input[name="q"]');
+  const sections = document.querySelectorAll("main section, body > section");
+  const nothing_found = document.querySelector("#nothing-found");
+
+  const filter = () => {
+    const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+
+    for (const section of sections) {
+      const items = section.querySelectorAll("li");
+
+      for (const item of items) {
+        const text = item.textContent.toLowerCase();
+        item.hidden = !words.every((word) => text.includes(word));
+      }
+
+      // a category with no matches disappears, heading and all
+      section.hidden = [...items].every((item) => item.hidden);
+    }
+
+    nothing_found.hidden = [...sections].some((section) => !section.hidden);
+  };
+
+  input.value = new URLSearchParams(location.search).get("q") ?? "";
+  input.addEventListener("input", filter);
+  filter();
+</script>
