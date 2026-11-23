@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {{#if description}}
+      <meta name="description" content="{{description}}" />
+    {{/if}}
+    {{#if keywords}}
+      <meta name="keywords" content="{{keywords}}" />
+    {{/if}}
+    {{#if author}}
+      <meta name="author" content="{{author}}" />
+    {{/if}}
+
+    <title>{{#if title}}{{title}}{{else}}Faro Frontend Guidelines{{/if}}</title>
+
+    <link rel="stylesheet" href="/highlight.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a> · <a href="/rules/">Rules</a> · <a href="/tags/">Tags</a> ·
+      <search>
+        <form action="/search/">
+          <input type="search" name="q" placeholder="Search" aria-label="Search docs and rules" />
+        </form>
+      </search>
+    </nav>
+
+    {{{body}}}
+  </body>
+</html>

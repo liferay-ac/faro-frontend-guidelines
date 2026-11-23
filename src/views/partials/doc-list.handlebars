@@ -1,0 +1,9 @@
+<ul class="doc-list">
+  {{#each docs}}
+    <li>
+      <a href="/docs/{{slug}}/">{{title}}</a>
+      {{#if date}}<time class="byline" datetime="{{date.iso}}">{{date.display}}</time>{{/if}}
+      {{#if description}}<p class="byline">{{description}}</p>{{/if}}
+    </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,17 @@
+<h1>Rules</h1>
+
+<p>Patterns we might want in faro, one page each: what the rule is, the evidence for it, and good and bad examples. Each one starts as a <em>proposal</em> for the team to discuss; only <em>accepted</em> rules are agreed conventions. Pages marked <em>AI draft</em> were written entirely by AI; every accepted rule is rewritten by a person first.</p>
+
+{{#each categories}}
+  <h2 id="{{slug}}">{{name}}</h2>
+
+  <ul class="doc-list">
+    {{#each rules}}
+      <li>
+        <a href="/rules/{{id}}/">{{id}}</a>
+        <p><small><mark data-status="{{status}}">{{status}}</mark>{{#if ai_drafted}} · <span data-ai-draft>AI draft</span>{{/if}}</small></p>
+        <p class="byline">{{description}}</p>
+      </li>
+    {{/each}}
+  </ul>
+{{/each}}

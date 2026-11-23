@@ -1,0 +1,15 @@
+<table>
+  <caption>Revision history</caption>
+  <thead>
+    <tr><th>Date</th><th>By</th><th>Change</th></tr>
+  </thead>
+  <tbody>
+    {{#each revisions}}
+      <tr{{#if ai}} data-ai-draft{{/if}}>
+        <td>{{#if date}}<time datetime="{{date.iso}}">{{date.iso}}</time>{{/if}}</td>
+        <td>{{by}}</td>
+        <td>{{change}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

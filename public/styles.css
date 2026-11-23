@@ -1,0 +1,124 @@
+html {
+  background: blanchedalmond;
+}
+
+body {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* sections: more room above a heading, less between it and its text */
+h2 {
+  margin: 2em 0 0.3em;
+}
+
+h3 {
+  margin: 1.5em 0 0.3em;
+}
+
+header > p {
+  margin: 0.25em 0;
+}
+
+a {
+  color: blue;
+}
+
+nav {
+  margin-bottom: 1em;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 4px;
+}
+
+pre {
+  background: white; /* syntax colours live in public/highlight.css */
+  color: black;
+  border: 1px solid black;
+  padding: 12px 16px;
+  overflow-x: auto; /* long lines scroll instead of breaking the layout */
+}
+
+code {
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+  font-size: 0.9em;
+}
+
+/* let the <pre> above own the box; the theme would add its own padding and background */
+pre code.hljs {
+  padding: 0;
+  background: none;
+  overflow-x: visible;
+}
+
+/* inline `code` in a sentence, as opposed to a whole block */
+:not(pre) > code {
+  background: white;
+  padding: 0 0.15em;
+  border: 1px solid black;
+}
+
+/* home and tag pages: title, date, then description underneath */
+.doc-list li {
+  margin-bottom: 0.75em;
+}
+
+.doc-list p {
+  margin: 0.15em 0 0;
+}
+
+/* date + author under a doc's title */
+.byline {
+  color: black;
+  font-size: 0.9em;
+}
+
+/* a rule's status, in bold colour: proposed is orange, accepted green, rejected red */
+mark {
+  background: none;
+  font-weight: bold;
+}
+
+mark[data-status="proposed"] {
+  color: orange;
+}
+
+mark[data-status="accepted"] {
+  color: green;
+}
+
+mark[data-status="rejected"] {
+  color: red;
+}
+
+/* anything written by AI */
+[data-ai-draft] {
+  color: red;
+}
+
+/* the search box sits on the nav line */
+nav search,
+nav form {
+  display: inline;
+}
+
+/* search with no results */
+#nothing-found {
+  font-size: 6em;
+  margin: 0.25em 0;
+}
+
+/* search results: one underlined heading per category */
+section > h2 {
+  text-decoration: underline;
+}
